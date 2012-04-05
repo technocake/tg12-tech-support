@@ -5,7 +5,8 @@ def switchToInt(s):
 	return (int(s.split('-')[0])-1)*4 + int(s.split('-')[1])
 
 def intToSwitch(i):
-	i -= 1 
+	i-=1
+
 	return "%s-%s" % ((i-(i%4))/4 +1 , i%4+1 )
 
 def switchRange(S1, SN):
@@ -23,4 +24,4 @@ R=84
 
 FILTER = switchRange("26-1", "42-4")
 
-print [intToSwitch(i) for i in range(1, R*2-1, 2) if not i in FILTER]
+print [intToSwitch(i) for i in range(1, R*2-1) if not i in FILTER]
