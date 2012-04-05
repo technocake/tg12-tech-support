@@ -13,8 +13,16 @@ def switchRange(S1, SN):
 	return [switch for switch in range (switchToInt(S1), switchToInt(SN))]
 
 
+def rowFromIp(sip):
+	rawrow = int( sip.split('.')[-2] ) 
+	return rawrow if rawrow %2 else rawrow-1
+
+
+
 def main():
 	print intToSwitch(switchToInt("3-2"))
+	print rowFromIp("176.110.11.1")
+	print rowFromIp("176.110.32.129")
 
 if __name__ == '__main__':
 	main()
