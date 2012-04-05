@@ -16,10 +16,14 @@
 
 import sys
 
-#Configuration
+######################################
+#	Configuration
+######################################
 rows 		= 78	#rows
 switches 	= 4		#switches per row
 outFile 	= "tg-switch-labels-print-me.html"
+exclude  =
+
 
 #### CREATIVIA ####
 creative_rows		= 10
