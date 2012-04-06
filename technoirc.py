@@ -28,22 +28,26 @@ class PidgeonBot:
       letter = self.irc.recv(4096)
       return letter
 
-def waitSome():
-   while True:
-      data = irc.recv ( 4096 )
-      if data.find ( 'PING' ) != -1:
-         irc.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
-      if data.find ( 'slaps botty' ) != -1:
-         irc.send ( 'PRIVMSG #paul :This is the Trout Protection Agency. Please put the Trout Down and walk away with your hands in the air.\r\n' )
-      print data
+
+
+   def waitSome(self):
+      self.t=threading.Thread(target=doSome)
+      self.t.start()
+   def doSome(self):
+      while True:
+         data = self.irc.recv ( 4096 )
+         if data.find ( 'PING' ) != -1:
+            self.irc.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
+         if data.find ( 'slaps botty' ) != -1:
+            self.irc.send ( 'PRIVMSG #paul :This is the Trout Protection Agency. Please put the Trout Down and walk away with your hands in the air.\r\n' )
+         print data
+
 
 def main():
    pidgeon = PidgeonBot('TGpidgeon', 'technocake')
    pidgeon.fly('Some onions has arrived')
    print pidgeon.returnHomeWithMessage()
-   threading.Thread(target=waitSome)
-
-
+   pidgeon.doSome()
 
 
 if __name__ == '__main__':
