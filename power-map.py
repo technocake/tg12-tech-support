@@ -72,10 +72,10 @@ def SmokeSignal(s):
 	switches_currently_being_processing[s] = Timer(processing_time)
 
 	print "ROW %s \tPOWER DOWN!!!"%rowFromIp(s), s	
-	mailAlert('jfrhammer@gmail.com')
-	#mailAlert('orrebakken@gmail.com')
+	mailAlert('jfrhammer@gmail.com', s)
+	#mailAlert('orrebakken@gmail.com', s)
 	#mailAlert('ANNAR')
-	mailAlert('robin.garen@gmail.com')
+	mailAlert('robin.garen@gmail.com', s)
 
 
 #
